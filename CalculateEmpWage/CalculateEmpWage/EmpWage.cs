@@ -20,22 +20,24 @@ namespace CalculateEmpWage
             Random random = new Random();
             int Check = random.Next(3);
 
-            if(Check==Is_FullTime)
+            switch(Check)
             {
+                case 0:
                 Console.WriteLine("Employee Is Present");
                 EmpHrs = 8;
-
-            }
-            else if(Check==Is_PartTime)
-            {
+                break;
+                case 1:
                 Console.WriteLine("Employee Is Parttime Present");
                 EmpHrs = 4;
-            }
-            else
-            {
+                break;
+                case 2:
                 Console.WriteLine("Employee Is Absent");
                 EmpHrs = 0;
+                    break;
+
             }
+         
+           
             EmpWage = EmpHrs * Emp_Rate_Per_Hrs;
             Console.WriteLine("Total Empwage: " + EmpWage);
         }
