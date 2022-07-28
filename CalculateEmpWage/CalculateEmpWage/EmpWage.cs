@@ -14,12 +14,14 @@ namespace CalculateEmpWage
             int Is_PartTime = 2;
             int Emp_Rate_Per_Hrs = 20;
             int Emp_Wrk_Day_Per_Month = 20;
-            
+            int Max_Wrk_Hrs = 100;
+
+            int Day = 0;
             int EmpHrs = 0;
             int EmpWage = 0;
 
 
-            for (int i = 1; i <= Emp_Wrk_Day_Per_Month; i++)
+            while (Day <= Emp_Wrk_Day_Per_Month && EmpHrs<=Max_Wrk_Hrs)
             {
                 Random random = new Random();
                 int Check = random.Next(3);
@@ -28,20 +30,21 @@ namespace CalculateEmpWage
                 switch (Check)
                 {
                     case 0:
-                        Console.WriteLine("Day: "+i+" Employee Is Present");
+                        Console.WriteLine(" Employee Is Present");
                         EmpHrs += 8;
                         break;
                     case 1:
-                        Console.WriteLine("Day: "+i +" Employee Is Parttime Present");
+                        Console.WriteLine(" Employee Is Parttime Present");
                         EmpHrs += 4;
                         break;
                     case 2:
-                        Console.WriteLine("Day: "+i +" Employee Is Absent");
+                        Console.WriteLine(" Employee Is Absent");
                         EmpHrs = 0;
                         break;
 
 
                 }
+                Day++;
             }
            
             EmpWage = EmpHrs * Emp_Rate_Per_Hrs;
