@@ -8,12 +8,13 @@ namespace CalculateEmpWage
 {
     public class EmpWage
     {
+            const int Is_FullTime = 1;
+            const int Is_PartTime = 2;
+            const int Emp_Rate_Per_Hrs = 20;
+            const int Emp_Wrk_Day_Per_Month = 20;
         public static void CheckEmployee()
         {
-            int Is_FullTime = 1;
-            int Is_PartTime = 2;
-            int Emp_Rate_Per_Hrs = 20;
-            int Emp_Wrk_Day_Per_Month = 20;
+           
             
             int EmpHrs = 0;
             int EmpWage = 0;
