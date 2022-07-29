@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,47 +8,54 @@ namespace CalculateEmpWage
 {
     public class EmpWage
     {
+        public int Present = 1;
+        public const int FullTime = 0, PartTime = 1, Absent = 2, WageHour = 20, TotalWorkingHrs = 20, TotalWorkingDay=20;
+
         public static void CheckEmployee()
         {
-            int Is_FullTime = 1;
-            int Is_PartTime = 2;
-            int Emp_Rate_Per_Hrs = 20;
-            int Emp_Wrk_Day_Per_Month = 20;
-            int Max_Wrk_Hrs = 100;
+
+            int EmpHour = 0;
 
             int Day = 0;
-            int EmpHrs = 0;
-            int EmpWage = 0;
 
-
-            while (Day <= Emp_Wrk_Day_Per_Month && EmpHrs<=Max_Wrk_Hrs)
+        int EmpMonthly = 0;
+             while(Day<=TotalWorkingDay && EmpHour <=TotalWorkingHrs )
             {
-                Random random = new Random();
-                int Check = random.Next(3);
 
-
-                switch (Check)
+                Random TimeCheck = new Random();
+                int CheckTime = TimeCheck.Next(0, 3);
+                switch (CheckTime)
                 {
                     case 0:
-                        Console.WriteLine(" Employee Is Present");
-                        EmpHrs += 8;
+                        Console.WriteLine("Day: " + Day + " Employee Is Present");
+                        EmpHour = 8;
+
                         break;
+
                     case 1:
-                        Console.WriteLine(" Employee Is Parttime Present");
-                        EmpHrs += 4;
+                        Console.WriteLine("Day: " + Day + " Employee Is Parttime Present");
+                        EmpHour = 4;
+
                         break;
+
                     case 2:
-                        Console.WriteLine(" Employee Is Absent");
-                        EmpHrs = 0;
+                        Console.WriteLine("Day: " + Day + " Employee Is Absent");
+                        EmpHour = 0;
+
                         break;
-
-
                 }
+                int EmpWageDaily = EmpHour * WageHour;
+                Console.WriteLine("Total Empwage: "+EmpWageDaily);
+                EmpMonthly += EmpWageDaily;
                 Day++;
+               
             }
-           
-            EmpWage = EmpHrs * Emp_Rate_Per_Hrs;
-            Console.WriteLine("Total Empwage: " + EmpWage);
+            int Wage = EmpHour * WageHour;
+            Console.WriteLine("Monthly Wage is " + EmpMonthly);
+
+
+
+
         }
     }
 }
