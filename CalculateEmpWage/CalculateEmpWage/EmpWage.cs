@@ -9,17 +9,17 @@ namespace CalculateEmpWage
     public class EmpWage
     {
         public int Present = 1;
-        public const int fulltime = 0, parttime = 1, absent = 2, wagehour = 20;
+        public const int FullTime = 0, PartTime = 1, Absent = 2, WageHour = 20;
 
         public static void CheckEmployee()
         {
 
-            int Emphour = 0;
+            int EmpHour = 0;
 
        
 
         int EmpMonthly = 0;
-             for(int i=0; i<=wagehour; i++)
+             for(int i=0; i<=WageHour; i++)
             {
 
                 Random TimeCheck = new Random();
@@ -28,28 +28,28 @@ namespace CalculateEmpWage
                 {
                     case 0:
                         Console.WriteLine("Day: " + i + " Employee Is Present");
-                        Emphour = 8;
+                        EmpHour = 8;
 
                         break;
 
                     case 1:
                         Console.WriteLine("Day: " + i + " Employee Is Parttime Present");
-                        Emphour = 4;
+                        EmpHour = 4;
 
                         break;
 
                     case 2:
                         Console.WriteLine("Day: " + i + " Employee Is Absent");
-                        Emphour = 0;
+                        EmpHour = 0;
 
                         break;
                 }
-                int EmpWageDaily = Emphour * wagehour;
+                int EmpWageDaily = EmpHour * WageHour;
                 Console.WriteLine("Total Empwage: "+EmpWageDaily);
                 EmpMonthly += EmpWageDaily;
                
             }
-            int Wage = Emphour * wagehour;
+            int Wage = EmpHour * WageHour;
             Console.WriteLine("Monthly Wage is " + EmpMonthly);
 
 
